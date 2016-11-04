@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>d6842ffa-2f8a-4890-8ba1-5f4ae15cf69e</ProjectGuid>
+    <ProjectGuid>{D6842FFA-2F8A-4890-8BA1-5F4AE15CF69E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>KanjiAlive</RootNamespace>
@@ -30,24 +30,41 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Models\Core\Audio.cs" />
+    <Compile Include="Models\Core\CharacterSimple.cs" />
+    <Compile Include="Models\Core\Example.cs" />
+    <Compile Include="Models\Core\KanjiDetailed.cs" />
+    <Compile Include="Models\Core\KanjiSimple.cs" />
+    <Compile Include="Models\Core\Kunyomi.cs" />
+    <Compile Include="Models\Core\Meaning.cs" />
+    <Compile Include="Models\Core\Name.cs" />
+    <Compile Include="Models\Core\Onyomi.cs" />
+    <Compile Include="Models\Core\Position.cs" />
+    <Compile Include="Models\Core\RadicalDetailed.cs" />
+    <Compile Include="Models\Core\RadicalSimple.cs" />
+    <Compile Include="Models\Core\References.cs" />
+    <Compile Include="Models\Core\Video.cs" />
+    <Compile Include="Models\Core\Yomi.cs" />
+    <Compile Include="Models\Response\KanjiDetailedResponse.cs" />
+    <Compile Include="Models\Response\KanjiSimpleResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+    <Folder Include="Clients\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Http\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +74,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>
