@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using KanjiAlive.Http;
 
 namespace KanjiAlive.Clients
 {
     public abstract class ApiClient
     {
+        private readonly IConnection _connection;
+
+        public ApiClient()
+        {
+            _connection = new Connection();
+        }
     }
 }
