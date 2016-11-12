@@ -4,11 +4,11 @@ namespace KanjiAlive.Clients
 {
     public abstract class ApiClient
     {
-        private readonly IConnection _connection;
+        internal readonly IConnection _Connection;
 
-        public ApiClient()
+        public ApiClient(string ApiKey)
         {
-            _connection = new Connection();
+            _Connection = new Connection(ApiKey);
         }
     }
 }

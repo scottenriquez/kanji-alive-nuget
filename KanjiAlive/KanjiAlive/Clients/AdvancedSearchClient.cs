@@ -8,7 +8,7 @@ namespace KanjiAlive.Clients
 {
     public class AdvancedSearchClient : ApiClient, IAdvancedSearchClient
     {
-        public AdvancedSearchClient() : base()
+        public AdvancedSearchClient(string ApiKey) : base(ApiKey)
         {
             
         }

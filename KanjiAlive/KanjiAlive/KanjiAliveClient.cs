@@ -17,7 +17,7 @@ namespace KanjiAlive
         /// <summary>
         /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
         /// </summary>
-        public string ApiKey { get; private set; }
+        public string _ApiKey { get; private set; }
 
         /// <summary>
         /// Client for executing basic kanji search.
@@ -43,10 +43,10 @@ namespace KanjiAlive
         public KanjiAliveClient(string ApiKey)
         {
             Ensure.ApiKeyNotNullOrEmpty(ApiKey);
-            this.ApiKey = ApiKey;
-            BasicSearchClient = new BasicSearchClient();
-            AdvancedSearchClient = new AdvancedSearchClient();
-            KanjiDetailsClient = new KanjiDetailsClient();
+            _ApiKey = ApiKey;
+            BasicSearchClient = new BasicSearchClient(_ApiKey);
+            AdvancedSearchClient = new AdvancedSearchClient(_ApiKey);
+            KanjiDetailsClient = new KanjiDetailsClient(_ApiKey);
         }
     }
 }

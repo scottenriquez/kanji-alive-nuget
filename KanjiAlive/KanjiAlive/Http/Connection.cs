@@ -15,9 +15,15 @@ namespace KanjiAlive.Http
         /// </summary>
         private readonly HttpClient _httpClient;
 
-        public Connection()
+        /// <summary>
+        /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        /// </summary>
+        private readonly string _ApiKey;
+
+        public Connection(string ApiKey)
         {
-            _httpClient = new HttpClient();   
+            _httpClient = new HttpClient();
+            _ApiKey = ApiKey;
         }
 
         /// <summary>

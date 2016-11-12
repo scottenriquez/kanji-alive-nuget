@@ -8,7 +8,7 @@ namespace KanjiAlive.Clients
 {
     public class KanjiDetailsClient : ApiClient, IKanjiDetailsClient
     {
-        public KanjiDetailsClient() : base()
+        public KanjiDetailsClient(string ApiKey) : base(ApiKey)
         {
             
         }
