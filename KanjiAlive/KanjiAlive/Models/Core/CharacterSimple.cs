@@ -9,6 +9,6 @@ namespace KanjiAlive.Models.Core
     public class CharacterSimple
     {
         public string Character { get; set; }
-        public int Strokes { get; set; }
+        public int Stroke { get; set; }
     }
 }

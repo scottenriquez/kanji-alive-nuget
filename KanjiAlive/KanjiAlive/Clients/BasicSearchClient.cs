@@ -35,9 +35,9 @@ namespace KanjiAlive.Clients
         /// </summary>
         /// <param name="kanji"></param>
         /// <returns></returns>
-        public async Task<KanjiSimpleResponse> Get(string kanji)
+        public async Task<List<KanjiSimpleResponse>> Get(string kanji)
         {
-            return await _Connection.Get<KanjiSimpleResponse>(new Uri(BaseUri, kanji));
+            return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, kanji));
         }
     }
 }

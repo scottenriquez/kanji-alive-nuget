@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using KanjiAlive.Models.Response;
 using NUnit.Framework;
@@ -14,9 +12,9 @@ namespace KanjiAlive.Tests.Integration.BasicSearchClient
         [Test]
         public async Task ShouldExecuteBasicSearch()
         {
-            KanjiAliveClient client = new KanjiAliveClient("");
-            KanjiSimpleResponse response = await client.BasicSearchClient.Get("rain");
-            Assert.That(true, Is.EqualTo(true));   
+            KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
+            List<KanjiSimpleResponse> response = await client.BasicSearchClient.Get("rain");
+            Assert.That(response, !Is.Null);   
         }
     }
 }
