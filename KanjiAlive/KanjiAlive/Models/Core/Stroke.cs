@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace KanjiAlive.Models.Core
 {
-    public class References
+    public class Stroke
     {
-        public int? Grade { get; set; }
-        public string Kodansha { get; set; }
-        public string Classic_Nelson { get; set; }
+        public int Count { get; set; }
+        public List<double> Timings { get; set; }
+        public List<string> Images { get; set; } 
     }
 }

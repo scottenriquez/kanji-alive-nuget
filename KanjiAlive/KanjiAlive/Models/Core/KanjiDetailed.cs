@@ -10,7 +10,7 @@ namespace KanjiAlive.Models.Core
     {
         public string Character { get; set; }
         public Meaning Meaning { get; set; }
-        public int Strokes { get; set; }
+        public Stroke Strokes { get; set; }
         public Onyomi Onyomi { get; set; }
         public Kunyomi Kunyomi { get; set; }
         public Video Video { get; set; }

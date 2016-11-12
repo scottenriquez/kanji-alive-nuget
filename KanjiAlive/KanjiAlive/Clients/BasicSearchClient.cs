@@ -33,11 +33,11 @@ namespace KanjiAlive.Clients
         /// <summary>
         /// Executes the GET verb for the basic search.
         /// </summary>
-        /// <param name="kanji"></param>
+        /// <param name="query"></param>
         /// <returns></returns>
-        public async Task<IApiResponse<List<KanjiSimpleResponse>>> Get(string kanji)
+        public async Task<IApiResponse<List<KanjiSimpleResponse>>> Get(string query)
         {
-            return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, kanji));
+            return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, query));
         }
     }
 }

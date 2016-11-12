@@ -9,7 +9,7 @@ namespace KanjiAlive.Models.Core
     public class RadicalDetailed
     {
         public string Character { get; set; }
-        public int Strokes { get; set; }
+        public int? Strokes { get; set; }
         public string Image { get; set; }
         public Position Position { get; set; }
         public Name Name { get; set; }

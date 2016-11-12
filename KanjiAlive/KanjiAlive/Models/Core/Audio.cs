@@ -8,9 +8,9 @@ namespace KanjiAlive.Models.Core
 {
     public class Audio
     {
-        public string opus { get; set; }
-        public string aac { get; set; }
-        public string ogg { get; set; }
-        public string mp3 { get; set; }
+        public string Opus { get; set; }
+        public string Aac { get; set; }
+        public string Ogg { get; set; }
+        public string Mp3 { get; set; }
     }
 }

@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicSearchClient\BasicSearchClientTests.cs" />
+    <Compile Include="KanjiDetailsClient\AllKanjiDetailsTests.cs" />
+    <Compile Include="KanjiDetailsClient\SingleKanjiDetailsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

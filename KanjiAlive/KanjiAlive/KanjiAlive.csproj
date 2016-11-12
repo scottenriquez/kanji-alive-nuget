@@ -78,6 +78,7 @@
     <Compile Include="Models\Core\RadicalDetailed.cs" />
     <Compile Include="Models\Core\RadicalSimple.cs" />
     <Compile Include="Models\Core\References.cs" />
+    <Compile Include="Models\Core\Stroke.cs" />
     <Compile Include="Models\Core\Video.cs" />
     <Compile Include="Models\Core\Yomi.cs" />
     <Compile Include="Models\Response\KanjiDetailedResponse.cs" />
