@@ -34,7 +34,7 @@ namespace KanjiAlive.Http
         /// <typeparam name="T"></typeparam>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public async Task<T> Get<T>(Uri Uri)
+        public async Task<IApiResponse<T>> Get<T>(Uri Uri)
         {
             HttpRequestMessage RequestMessage = new HttpRequestMessage()
             {
@@ -44,7 +44,17 @@ namespace KanjiAlive.Http
             RequestMessage.Headers.Add("X-Mashape-Key", _ApiKey);
             HttpResponseMessage ResponseMessage = await _httpClient.SendAsync(RequestMessage);
             string JsonResponse = await ResponseMessage.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<T>(JsonResponse);
+            T DeserializedObject = JsonConvert.DeserializeObject<T>(JsonResponse);
+            return new ApiResponse<T>()
+            {
+                Content = DeserializedObject,
+                HttpResponse = new Response()
+                {
+                    Body = ResponseMessage.Content,
+                    StatusCode = ResponseMessage.StatusCode,
+                    ReasonPhrase = ResponseMessage.ReasonPhrase
+                }
+            };
         }
     }
 }

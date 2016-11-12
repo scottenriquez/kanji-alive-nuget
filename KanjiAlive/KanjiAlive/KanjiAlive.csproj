@@ -57,8 +57,12 @@
     <Compile Include="Clients\KanjiDetailsClient.cs" />
     <Compile Include="Exceptions\EmptyApiKeyException.cs" />
     <Compile Include="Helpers\Ensure.cs" />
+    <Compile Include="Http\ApiResponse.cs" />
     <Compile Include="Http\Connection.cs" />
+    <Compile Include="Http\IApiResponse.cs" />
     <Compile Include="Http\IConnection.cs" />
+    <Compile Include="Http\IResponse.cs" />
+    <Compile Include="Http\Response.cs" />
     <Compile Include="IKanjiAliveClient.cs" />
     <Compile Include="KanjiAliveClient.cs" />
     <Compile Include="Models\Core\Audio.cs" />
@@ -76,7 +80,6 @@
     <Compile Include="Models\Core\References.cs" />
     <Compile Include="Models\Core\Video.cs" />
     <Compile Include="Models\Core\Yomi.cs" />
-    <Compile Include="Models\Response\IApiResponse.cs" />
     <Compile Include="Models\Response\KanjiDetailedResponse.cs" />
     <Compile Include="Models\Response\KanjiSimpleResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KanjiAlive.Models.Response
+namespace KanjiAlive.Http
 {
-    public interface IApiResponse<T>
+    public interface IApiResponse<out T>
     {
-
+        T Content { get; }
+        IResponse HttpResponse { get; }
     }
 }

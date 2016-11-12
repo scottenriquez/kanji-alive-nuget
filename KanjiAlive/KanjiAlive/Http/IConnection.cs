@@ -7,6 +7,6 @@ namespace KanjiAlive.Http
 {
     public interface IConnection
     {
-        Task<T> Get<T>(Uri uri);
+        Task<IApiResponse<T>> Get<T>(Uri uri);
     }
 }
