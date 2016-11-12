@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using KanjiAlive.Models.Response;
+using Newtonsoft.Json;
 
 namespace KanjiAlive.Http
 {
@@ -32,10 +34,17 @@ namespace KanjiAlive.Http
         /// <typeparam name="T"></typeparam>
         /// <param name="uri"></param>
         /// <returns></returns>
-        public async Task<T> Get<T>(Uri uri)
+        public async Task<T> Get<T>(Uri Uri)
         {
-            HttpResponseMessage responseMessage = await _httpClient.GetAsync(uri);
-            return await responseMessage.Content.ReadAsAsync<T>();
+            HttpRequestMessage RequestMessage = new HttpRequestMessage()
+            {
+                RequestUri = Uri,
+                Method = HttpMethod.Get
+            };
+            RequestMessage.Headers.Add("X-Mashape-Key", _ApiKey);
+            HttpResponseMessage ResponseMessage = await _httpClient.SendAsync(RequestMessage);
+            string JsonResponse = await ResponseMessage.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<T>(JsonResponse);
         }
     }
 }
