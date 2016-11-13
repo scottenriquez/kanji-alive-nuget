@@ -52,6 +52,7 @@
     <Compile Include="Clients\IKanjiDetailsClient.cs" />
     <Compile Include="Clients\KanjiDetailsClient.cs" />
     <Compile Include="Exceptions\EmptyApiKeyException.cs" />
+    <Compile Include="Exceptions\InvalidApiKeyException.cs" />
     <Compile Include="Helpers\Ensure.cs" />
     <Compile Include="Http\ApiResponse.cs" />
     <Compile Include="Http\Connection.cs" />

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using KanjiAlive.Exceptions;
+using KanjiAlive.Helpers;
 using Newtonsoft.Json;
 
 namespace KanjiAlive.Http
@@ -36,8 +39,10 @@ namespace KanjiAlive.Http
                 RequestUri = Uri,
                 Method = HttpMethod.Get
             };
+            //pass credentials to API
             RequestMessage.Headers.Add("X-Mashape-Key", _ApiKey);
             HttpResponseMessage ResponseMessage = await _httpClient.SendAsync(RequestMessage);
+            Ensure.ApiKeyIsValid(ResponseMessage.StatusCode);
             string JsonResponse = await ResponseMessage.Content.ReadAsStringAsync();
             T DeserializedObject = JsonConvert.DeserializeObject<T>(JsonResponse);
             return new ApiResponse<T>()

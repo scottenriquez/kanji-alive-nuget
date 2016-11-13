@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using KanjiAlive.Exceptions;
@@ -23,6 +24,14 @@ namespace KanjiAlive.Helpers
             if (String.IsNullOrEmpty(ApiKey))
             {
                 throw new EmptyApiKeyException();
+            }
+        }
+
+        public static void ApiKeyIsValid(HttpStatusCode HttpStatusCode)
+        {
+            if (HttpStatusCode == HttpStatusCode.Forbidden)
+            {
+                throw new InvalidApiKeyException();
             }
         }
     }
