@@ -8,6 +8,6 @@ namespace KanjiAlive.Models.Core
 {
     public class KanjiSimple : CharacterSimple
     {
-        
+
     }
 }

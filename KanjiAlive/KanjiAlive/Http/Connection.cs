@@ -43,8 +43,7 @@ namespace KanjiAlive.Http
             RequestMessage.Headers.Add("X-Mashape-Key", _ApiKey);
             HttpResponseMessage ResponseMessage = await _httpClient.SendAsync(RequestMessage);
             Ensure.ApiKeyIsValid(ResponseMessage.StatusCode);
-            string JsonResponse = await ResponseMessage.Content.ReadAsStringAsync();
-            T DeserializedObject = JsonConvert.DeserializeObject<T>(JsonResponse);
+            T DeserializedObject = DeserializeJson<T>(await ResponseMessage.Content.ReadAsStringAsync());
             return new ApiResponse<T>()
             {
                 Content = DeserializedObject,
@@ -55,6 +54,11 @@ namespace KanjiAlive.Http
                     ReasonPhrase = ResponseMessage.ReasonPhrase
                 }
             };
+        }
+
+        public T DeserializeJson<T>(string Json)
+        {
+            return JsonConvert.DeserializeObject<T>(Json);
         }
     }
 }
