@@ -1,5 +1,8 @@
 language: csharp
 solution: KanjiAlive.sln
-sudo: false
 install:
   - nuget restore KanjiAlive.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release KanjiAlive.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./KanjiAlive.Tests/bin/Release/KanjiAlive.Tests.dll

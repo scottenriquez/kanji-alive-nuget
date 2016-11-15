@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvancedSearchClient\GetByKanjiCharacterTests.cs" />
+    <Compile Include="AdvancedSearchClient\GetByKanjiEnglishMeaningTests.cs" />
+    <Compile Include="AdvancedSearchClient\GetByKanjiGradeLevelTests.cs" />
+    <Compile Include="AdvancedSearchClient\GetByKunyomiReadingTests.cs" />
     <Compile Include="BasicSearchClient\BasicSearchClientTests.cs" />
     <Compile Include="KanjiDetailsClient\AllKanjiDetailsTests.cs" />
     <Compile Include="KanjiDetailsClient\SingleKanjiDetailsTests.cs" />
