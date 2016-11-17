@@ -11,7 +11,7 @@ namespace KanjiAlive.Helpers
     /// <summary>
     /// A cleaner way to enforce assertions.
     /// </summary>
-    internal static class Ensure
+    public static class Ensure
     {
         /// <summary>
         /// Ensure that the API key is not null or empty.
@@ -32,6 +32,14 @@ namespace KanjiAlive.Helpers
             if (HttpStatusCode == HttpStatusCode.Forbidden)
             {
                 throw new InvalidApiKeyException();
+            }
+        }
+
+        public static void ResponseIsNotInternalServerError(HttpStatusCode HttpStatusCode)
+        {
+            if (HttpStatusCode == HttpStatusCode.InternalServerError)
+            {
+                throw new ApiInternalServerErrorException();
             }
         }
     }

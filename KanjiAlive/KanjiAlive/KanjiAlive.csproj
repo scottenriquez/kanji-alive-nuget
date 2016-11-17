@@ -51,6 +51,7 @@
     <Compile Include="Clients\IBasicSearchClient.cs" />
     <Compile Include="Clients\IKanjiDetailsClient.cs" />
     <Compile Include="Clients\KanjiDetailsClient.cs" />
+    <Compile Include="Exceptions\ApiInternalServerErrorException.cs" />
     <Compile Include="Exceptions\EmptyApiKeyException.cs" />
     <Compile Include="Exceptions\InvalidApiKeyException.cs" />
     <Compile Include="Helpers\Ensure.cs" />

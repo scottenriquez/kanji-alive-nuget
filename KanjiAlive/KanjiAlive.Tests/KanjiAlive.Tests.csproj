@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Deserialization\KanjiDetailedResponseDeserializationTests.cs" />
     <Compile Include="Deserialization\KanjiSimpleResponseDeserializationTests.cs" />
+    <Compile Include="Exceptions\ApiInternalServerErrorTests.cs" />
     <Compile Include="Exceptions\EmptyApiKeyExceptionTests.cs" />
     <Compile Include="Exceptions\InvalidApiKeyExceptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
