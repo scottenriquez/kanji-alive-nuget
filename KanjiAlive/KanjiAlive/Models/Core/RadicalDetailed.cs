@@ -18,7 +18,7 @@ namespace KanjiAlive.Models.Core
 
         protected bool Equals(RadicalDetailed other)
         {
-            return string.Equals(Character, other.Character) && Strokes == other.Strokes && string.Equals(Image, other.Image) && Equals(Position, other.Position) && Equals(Name, other.Name) && Equals(Meaning, other.Meaning) && Equals(Animation, other.Animation);
+            return string.Equals(Character, other.Character) && Strokes == other.Strokes && string.Equals(Image, other.Image) && Equals(Position, other.Position) && Equals(Name, other.Name) && Equals(Meaning, other.Meaning) && Animation.SequenceEqual(other.Animation);
         }
 
         public override bool Equals(object obj)

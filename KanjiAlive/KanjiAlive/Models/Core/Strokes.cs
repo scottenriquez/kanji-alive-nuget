@@ -14,7 +14,7 @@ namespace KanjiAlive.Models.Core
 
         protected bool Equals(Strokes other)
         {
-            return Count == other.Count && Equals(Timings, other.Timings) && Equals(Images, other.Images);
+            return Count == other.Count && Timings.SequenceEqual(other.Timings) && Images.SequenceEqual(other.Images);
         }
 
         public override bool Equals(object obj)

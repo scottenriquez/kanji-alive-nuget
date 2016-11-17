@@ -16,7 +16,7 @@ namespace KanjiAlive.Models.Response
 
         protected bool Equals(KanjiDetailedResponse other)
         {
-            return Equals(Kanji, other.Kanji) && Equals(Radical, other.Radical) && Equals(References, other.References) && Equals(Examples, other.Examples);
+            return Equals(Kanji, other.Kanji) && Equals(Radical, other.Radical) && Equals(References, other.References) && Examples.SequenceEqual(Examples);
         }
 
         public override bool Equals(object obj)
