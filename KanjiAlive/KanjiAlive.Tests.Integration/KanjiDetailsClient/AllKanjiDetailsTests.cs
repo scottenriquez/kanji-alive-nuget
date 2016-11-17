@@ -14,7 +14,7 @@ namespace KanjiAlive.Tests.Integration.KanjiDetailsClient
         [Test]
         public async Task ShouldExecuteGetAllKanjiDetails()
         {
-            KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
+            KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiDetailedResponse>> ApiResponse = await Client.KanjiDetailsClient.GetAllKanjiDetails();
             Assert.That(ApiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }

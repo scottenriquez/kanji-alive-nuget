@@ -14,7 +14,7 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
         [Test]
         public async Task ShouldGetByKanjiGradeLevel()
         {
-            KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
+            KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.AdvancedSearchClient.GetByKanjiGradeLevel(2);
             Assert.That(ApiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
