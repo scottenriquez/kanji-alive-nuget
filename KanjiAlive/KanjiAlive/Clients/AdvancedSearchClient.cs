@@ -55,6 +55,11 @@ namespace KanjiAlive.Clients
             return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, GET_GRADE_URL_PARAMETER + Grade));
         }
 
+        public async Task<IApiResponse<List<KanjiSimpleResponse>>> GetByKanjiStrokeNumber(int Strokes)
+        {
+            return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, GET_STROKES_URL_PARAMETER + Strokes));
+        }
+
         public async Task<IApiResponse<List<KanjiSimpleResponse>>> GetByKunyomiReading(string Kunyomi)
         {
             return await _Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, GET_KUNYOMI_URL_PARAMETER + Kunyomi));
