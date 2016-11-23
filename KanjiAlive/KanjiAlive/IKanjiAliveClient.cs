@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive
+﻿namespace KanjiAlive
 {
+    /// <summary>
+    ///     Client for the Kanji Alive public API. The documentation is located here:
+    ///     https://github.com/scottenriquez/kanji-alive-nuget.
+    /// </summary>
     public interface IKanjiAliveClient
     {
     }

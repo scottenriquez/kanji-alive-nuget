@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive.Models.Core
+﻿namespace KanjiAlive.Models.Core
 {
+    /// <summary>
+    ///     Simple metadata for a radical.
+    /// </summary>
     public class RadicalSimple : CharacterSimple
     {
+        /// <summary>
+        ///     The order of the radical.
+        /// </summary>
         public int Order { get; set; }
 
         protected bool Equals(RadicalSimple other)
         {
-            return base.Equals(other) && Order == other.Order;
+            return base.Equals(other) && this.Order == other.Order;
         }
 
         public override bool Equals(object obj)
@@ -20,14 +20,14 @@ namespace KanjiAlive.Models.Core
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((RadicalSimple) obj);
+            return this.Equals((RadicalSimple) obj);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                return (base.GetHashCode()*397) ^ Order;
+                return (base.GetHashCode()*397) ^ this.Order;
             }
         }
     }

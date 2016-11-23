@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive.Models.Core
+﻿namespace KanjiAlive.Models.Core
 {
+    /// <summary>
+    ///     Japanese reading for a kanji character.
+    /// </summary>
     public class Kunyomi : Yomi
     {
+        /// <summary>
+        ///     The hiragana text for the Japanese reading of a kanji character.
+        /// </summary>
         public string Hiragana { get; set; }
 
         protected bool Equals(Kunyomi other)
         {
-            return string.Equals(Hiragana, other.Hiragana);
+            return string.Equals(this.Hiragana, other.Hiragana);
         }
 
         public override bool Equals(object obj)
@@ -20,12 +20,12 @@ namespace KanjiAlive.Models.Core
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Kunyomi) obj);
+            return this.Equals((Kunyomi) obj);
         }
 
         public override int GetHashCode()
         {
-            return (Hiragana != null ? Hiragana.GetHashCode() : 0);
+            return this.Hiragana != null ? this.Hiragana.GetHashCode() : 0;
         }
     }
 }

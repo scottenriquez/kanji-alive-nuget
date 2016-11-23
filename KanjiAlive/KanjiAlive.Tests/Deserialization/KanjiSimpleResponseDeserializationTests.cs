@@ -14,14 +14,14 @@ namespace KanjiAlive.Tests.Deserialization
         public void ShouldDeserializeJsonToKanjiSimpleResponse()
         {
             //instantiate control object for testing
-            KanjiSimpleResponse ControlKanjiSimpleResponse = new KanjiSimpleResponse()
+            KanjiSimpleResponse controlKanjiSimpleResponse = new KanjiSimpleResponse
             {
-                Kanji = new KanjiSimple()
+                Kanji = new KanjiSimple
                 {
                     Character = "雨",
                     Stroke = 8
                 },
-                Radical = new RadicalSimple()
+                Radical = new RadicalSimple
                 {
                     Character = "雨",
                     Stroke = 8,
@@ -29,27 +29,26 @@ namespace KanjiAlive.Tests.Deserialization
                 }
             };
             //sample API response data in JSON format
-            string Json = "{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}";
-            Connection Connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
-            KanjiSimpleResponse DeserializedKanjiSimpleResponse = Connection.DeserializeJson<KanjiSimpleResponse>(Json);
+            string json = "{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}";
+            Connection connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
+            KanjiSimpleResponse deserializedKanjiSimpleResponse = connection.DeserializeJson<KanjiSimpleResponse>(json);
             //assert
-            Assert.That(ControlKanjiSimpleResponse, Is.EqualTo(DeserializedKanjiSimpleResponse));
-
+            Assert.That(controlKanjiSimpleResponse, Is.EqualTo(deserializedKanjiSimpleResponse));
         }
 
         [Test]
         public void ShouldDeserializeJsonToKanjiSimpleResponseList()
         {
             //instantiate control object for testing
-            List<KanjiSimpleResponse> ControlKanjiSimpleResponses = new List<KanjiSimpleResponse>();
-            ControlKanjiSimpleResponses.Add(new KanjiSimpleResponse()
+            List<KanjiSimpleResponse> controlKanjiSimpleResponses = new List<KanjiSimpleResponse>();
+            controlKanjiSimpleResponses.Add(new KanjiSimpleResponse
             {
-                Kanji = new KanjiSimple()
+                Kanji = new KanjiSimple
                 {
                     Character = "雨",
                     Stroke = 8
                 },
-                Radical = new RadicalSimple()
+                Radical = new RadicalSimple
                 {
                     Character = "雨",
                     Stroke = 8,
@@ -57,12 +56,11 @@ namespace KanjiAlive.Tests.Deserialization
                 }
             });
             //sample API response data in JSON format
-            string Json = "[{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}]";
-            Connection Connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
-            List<KanjiSimpleResponse> DeserializedKanjiSimpleResponses = Connection.DeserializeJson<List<KanjiSimpleResponse>>(Json);
+            string json = "[{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}]";
+            Connection connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
+            List<KanjiSimpleResponse> deserializedKanjiSimpleResponses = connection.DeserializeJson<List<KanjiSimpleResponse>>(json);
             //assert
-            Assert.That(ControlKanjiSimpleResponses, Is.EqualTo(DeserializedKanjiSimpleResponses));
-
+            Assert.That(controlKanjiSimpleResponses, Is.EqualTo(deserializedKanjiSimpleResponses));
         }
     }
 }

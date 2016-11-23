@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive.Models.Core
+﻿namespace KanjiAlive.Models.Core
 {
+    /// <summary>
+    ///     Simple metadata for a kanji character.
+    /// </summary>
     public class KanjiSimple : CharacterSimple
     {
-
     }
 }

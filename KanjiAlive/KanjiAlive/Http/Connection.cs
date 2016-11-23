@@ -6,58 +6,89 @@ using Newtonsoft.Json;
 
 namespace KanjiAlive.Http
 {
+    /// <summary>
+    ///     HTTP logic for consuming the Kanji Alive API.
+    /// </summary>
     public class Connection : IConnection
     {
         /// <summary>
-        /// This is the standard .NET HTTP client that executes the requests.
+        ///     API key provided by Mashape. To obtain a key, navigate to the public API site:
+        ///     https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        /// </summary>
+        private readonly string _apiKey;
+
+        /// <summary>
+        ///     This is the standard .NET HTTP client that executes the requests.
         /// </summary>
         private readonly HttpClient _httpClient;
 
         /// <summary>
-        /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        ///     Constructor for Connection.
         /// </summary>
-        private readonly string _ApiKey;
-
-        public Connection(string ApiKey)
+        /// <param name="apiKey">
+        ///     API key provided by Mashape. To obtain a key, navigate to the public API site:
+        ///     https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        /// </param>
+        public Connection(string apiKey)
         {
-            _httpClient = new HttpClient();
-            _ApiKey = ApiKey;
+            this._httpClient = new HttpClient();
+            this._apiKey = apiKey;
         }
 
         /// <summary>
-        /// Executes a generic GET command.
+        ///     Executes a generic HTTP GET command.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="uri"></param>
-        /// <returns></returns>
-        public async Task<IApiResponse<T>> Get<T>(Uri Uri)
+        /// <typeparam name="T">
+        ///     The type which the JSON response from the API will be deserialized to.
+        /// </typeparam>
+        /// <param name="uri">
+        ///     The URI for the target endpoint.
+        /// </param>
+        /// <returns>
+        ///     The response metadata from the API and the deserialized query results.
+        /// </returns>
+        public async Task<IApiResponse<T>> Get<T>(Uri uri)
         {
-            HttpRequestMessage RequestMessage = new HttpRequestMessage()
+            HttpRequestMessage requestMessage = new HttpRequestMessage
             {
-                RequestUri = Uri,
+                RequestUri = uri,
                 Method = HttpMethod.Get
             };
             //pass credentials to API
-            RequestMessage.Headers.Add("X-Mashape-Key", _ApiKey);
-            HttpResponseMessage ResponseMessage = await _httpClient.SendAsync(RequestMessage);
-            Ensure.ApiKeyIsValid(ResponseMessage.StatusCode);
-            Ensure.ResponseIsNotInternalServerError(ResponseMessage.StatusCode);
-            T DeserializedObject = DeserializeJson<T>(await ResponseMessage.Content.ReadAsStringAsync());
-            return new ApiResponse<T>()
+            requestMessage.Headers.Add("X-Mashape-Key", this._apiKey);
+            HttpResponseMessage responseMessage = await this._httpClient.SendAsync(requestMessage);
+            //validation
+            Ensure.ApiKeyIsValid(responseMessage.StatusCode);
+            Ensure.ResponseIsNotInternalServerError(responseMessage.StatusCode);
+            //deserialization and formatting response
+            T deserializedObject = this.DeserializeJson<T>(await responseMessage.Content.ReadAsStringAsync());
+            return new ApiResponse<T>
             {
-                Content = DeserializedObject,
-                HttpResponse = new Response()
+                Content = deserializedObject,
+                HttpResponse = new Response
                 {
-                    Body = ResponseMessage.Content,
-                    StatusCode = ResponseMessage.StatusCode,
-                    ReasonPhrase = ResponseMessage.ReasonPhrase
+                    Body = responseMessage.Content,
+                    StatusCode = responseMessage.StatusCode,
+                    ReasonPhrase = responseMessage.ReasonPhrase
                 }
             };
         }
 
-        public T DeserializeJson<T>(string Json)
+        /// <summary>
+        ///     Deserializes a JSON string to an object of type T.
+        /// </summary>
+        /// <typeparam name="T">
+        ///     The type which the JSON will be deserialized to.
+        /// </typeparam>
+        /// <param name="json">
+        ///     The JSON string to be deserialized.
+        /// </param>
+        /// <returns>
+        ///     The deserialized object.
+        /// </returns>
+        public T DeserializeJson<T>(string json)
         {
-            return JsonConvert.DeserializeObject<T>(Json);
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }

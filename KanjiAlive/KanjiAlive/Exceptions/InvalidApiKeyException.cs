@@ -3,16 +3,15 @@
 namespace KanjiAlive.Exceptions
 {
     /// <summary>
-    /// Thrown when the API key provided is invalid.
+    ///     Thrown when the API key provided is invalid.
     /// </summary>
     public class InvalidApiKeyException : Exception
     {
         /// <summary>
-        /// Constructor for InvalidApiKeyException.
+        ///     Constructor for InvalidApiKeyException.
         /// </summary>
         public InvalidApiKeyException() : base("The API key provided is invalid.")
         {
-            
         }
     }
 }

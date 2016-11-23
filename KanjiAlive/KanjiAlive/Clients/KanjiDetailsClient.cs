@@ -6,58 +6,63 @@ using KanjiAlive.Models.Response;
 
 namespace KanjiAlive.Clients
 {
+    /// <summary>
+    ///     Client for getting kanji details.
+    /// </summary>
     public class KanjiDetailsClient : ApiClient, IKanjiDetailsClient
     {
         /// <summary>
-        /// The base URI for the kanji details search.
-        /// https://kanjialive-api.p.mashape.com/api/public/kanji/{kanji}
-        /// </summary>
-        private static readonly Uri BaseUri = new Uri("https://kanjialive-api.p.mashape.com/api/public/kanji/");
-
-        /// <summary>
-        /// Constant parameter for the all kanji details endpoint: https://kanjialive-api.p.mashape.com/api/public/kanji/all.
+        ///     Constant parameter for the all kanji details endpoint: https://kanjialive-api.p.mashape.com/api/public/kanji/all.
         /// </summary>
         private const string ALL = "all";
 
         /// <summary>
-        /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        ///     The base URI for the kanji details search.
+        ///     https://kanjialive-api.p.mashape.com/api/public/kanji/{kanji}
         /// </summary>
-        private readonly string _ApiKey;
+        private static readonly Uri BaseUri = new Uri("https://kanjialive-api.p.mashape.com/api/public/kanji/");
 
         /// <summary>
-        /// Constructor for KanjiDetailsClient.
+        ///     API key provided by Mashape. To obtain a key, navigate to the public API site:
+        ///     https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
         /// </summary>
-        /// <param name="ApiKey">
-        /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        private readonly string _apiKey;
+
+        /// <summary>
+        ///     Constructor for KanjiDetailsClient.
+        /// </summary>
+        /// <param name="apiKey">
+        ///     API key provided by Mashape. To obtain a key, navigate to the public API site:
+        ///     https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
         /// </param>
-        public KanjiDetailsClient(string ApiKey) : base(ApiKey)
+        public KanjiDetailsClient(string apiKey) : base(apiKey)
         {
-            _ApiKey = ApiKey;
+            this._apiKey = apiKey;
         }
 
         /// <summary>
-        /// Search for a single kanji character.
+        ///     Search for a single kanji character.
         /// </summary>
-        /// <param name="Kanji">
-        /// A single kanji character.
+        /// <param name="kanji">
+        ///     A single kanji character.
         /// </param>
         /// <returns>
-        /// The API response and detailed metadata about the kanji character(s) that match the search criteria.
+        ///     The API response and detailed metadata about the kanji character(s) that match the search criteria.
         /// </returns>
-        public async Task<IApiResponse<KanjiDetailedResponse>> GetSingleKanjiDetails(string Kanji)
+        public async Task<IApiResponse<KanjiDetailedResponse>> GetSingleKanjiDetails(string kanji)
         {
-            return await _Connection.Get<KanjiDetailedResponse>(new Uri(BaseUri, Kanji));
+            return await this.Connection.Get<KanjiDetailedResponse>(new Uri(BaseUri, kanji));
         }
 
         /// <summary>
-        /// Fetch all kanji characters and their respective metadata.
+        ///     Fetch all kanji characters and their respective metadata.
         /// </summary>
         /// <returns>
-        /// The API response and detailed metadata about the kanji character(s) that match the search criteria.
+        ///     The API response and detailed metadata about the kanji character(s) that match the search criteria.
         /// </returns>
         public async Task<IApiResponse<List<KanjiDetailedResponse>>> GetAllKanjiDetails()
         {
-            return await _Connection.Get<List<KanjiDetailedResponse>>(new Uri(BaseUri, ALL));
+            return await this.Connection.Get<List<KanjiDetailedResponse>>(new Uri(BaseUri, ALL));
         }
     }
 }

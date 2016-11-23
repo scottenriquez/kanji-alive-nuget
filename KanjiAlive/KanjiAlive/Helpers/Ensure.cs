@@ -1,51 +1,51 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using KanjiAlive.Exceptions;
 
 namespace KanjiAlive.Helpers
 {
     /// <summary>
-    /// A clean way to enforce assertions.
+    ///     A clean way to enforce assertions.
     /// </summary>
     public static class Ensure
     {
         /// <summary>
-        /// Ensure that the API key is not null or empty.
+        ///     Ensure that the API key is not null or empty.
         /// </summary>
-        /// <param name="ApiKey">
-        /// API key provided by Mashape. To obtain a key, navigate to the public API site: https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
+        /// <param name="apiKey">
+        ///     API key provided by Mashape. To obtain a key, navigate to the public API site:
+        ///     https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji.
         /// </param>
-        public static void ApiKeyNotNullOrEmpty(string ApiKey)
+        public static void ApiKeyNotNullOrEmpty(string apiKey)
         {
-            if (String.IsNullOrEmpty(ApiKey))
+            if (string.IsNullOrEmpty(apiKey))
             {
                 throw new EmptyApiKeyException();
             }
         }
 
         /// <summary>
-        /// Ensure that the API key is validated by Mashape.
+        ///     Ensure that the API key is validated by Mashape.
         /// </summary>
-        /// <param name="HttpStatusCode">
-        /// API response status code.
+        /// <param name="httpStatusCode">
+        ///     API response status code.
         /// </param>
-        public static void ApiKeyIsValid(HttpStatusCode HttpStatusCode)
+        public static void ApiKeyIsValid(HttpStatusCode httpStatusCode)
         {
-            if (HttpStatusCode == HttpStatusCode.Forbidden)
+            if (httpStatusCode == HttpStatusCode.Forbidden)
             {
                 throw new InvalidApiKeyException();
             }
         }
 
         /// <summary>
-        /// Ensure that an internal error did not occur on the API server.
+        ///     Ensure that an internal error did not occur on the API server.
         /// </summary>
-        /// <param name="HttpStatusCode">
-        /// API response status code.
+        /// <param name="httpStatusCode">
+        ///     API response status code.
         /// </param>
-        public static void ResponseIsNotInternalServerError(HttpStatusCode HttpStatusCode)
+        public static void ResponseIsNotInternalServerError(HttpStatusCode httpStatusCode)
         {
-            if (HttpStatusCode == HttpStatusCode.InternalServerError)
+            if (httpStatusCode == HttpStatusCode.InternalServerError)
             {
                 throw new ApiInternalServerErrorException();
             }

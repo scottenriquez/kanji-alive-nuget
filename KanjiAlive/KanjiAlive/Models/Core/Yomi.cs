@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive.Models.Core
+﻿namespace KanjiAlive.Models.Core
 {
+    /// <summary>
+    ///     Reading for a character.
+    /// </summary>
     public class Yomi
     {
+        /// <summary>
+        ///     The romaji reading for a character.
+        /// </summary>
         public string Romaji { get; set; }
 
         protected bool Equals(Yomi other)
         {
-            return string.Equals(Romaji, other.Romaji);
+            return string.Equals(this.Romaji, other.Romaji);
         }
 
         public override bool Equals(object obj)
@@ -20,12 +20,12 @@ namespace KanjiAlive.Models.Core
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Yomi) obj);
+            return this.Equals((Yomi) obj);
         }
 
         public override int GetHashCode()
         {
-            return (Romaji != null ? Romaji.GetHashCode() : 0);
+            return this.Romaji != null ? this.Romaji.GetHashCode() : 0;
         }
     }
 }

@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KanjiAlive.Models.Core
+﻿namespace KanjiAlive.Models.Core
 {
+    /// <summary>
+    ///     An English translation.
+    /// </summary>
     public class Meaning
     {
+        /// <summary>
+        ///     The English translation text.
+        /// </summary>
         public string English { get; set; }
 
         protected bool Equals(Meaning other)
         {
-            return string.Equals(English, other.English);
+            return string.Equals(this.English, other.English);
         }
 
         public override bool Equals(object obj)
@@ -20,12 +20,12 @@ namespace KanjiAlive.Models.Core
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Meaning) obj);
+            return this.Equals((Meaning) obj);
         }
 
         public override int GetHashCode()
         {
-            return (English != null ? English.GetHashCode() : 0);
+            return this.English != null ? this.English.GetHashCode() : 0;
         }
     }
 }

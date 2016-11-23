@@ -14,9 +14,9 @@ namespace KanjiAlive.Tests.Integration.BasicSearchClient
         [Test]
         public async Task ShouldExecuteBasicSearch()
         {
-            KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
-            IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.BasicSearchClient.Search("rain");
-            Assert.That(ApiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));   
+            KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
+            IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.BasicSearchClient.Search("rain");
+            Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
 }

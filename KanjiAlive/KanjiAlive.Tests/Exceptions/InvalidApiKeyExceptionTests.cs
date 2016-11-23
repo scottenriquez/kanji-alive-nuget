@@ -15,8 +15,8 @@ namespace KanjiAlive.Tests.Exceptions
         {
             Assert.ThrowsAsync<InvalidApiKeyException>(async () =>
             {
-                KanjiAliveClient Client = new KanjiAliveClient("thisisaninvalidapikey");
-                IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.BasicSearchClient.Search("rain");
+                KanjiAliveClient client = new KanjiAliveClient("thisisaninvalidapikey");
+                IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.BasicSearchClient.Search("rain");
             });
         }
     }
