@@ -18,11 +18,11 @@
         /// <summary>
         ///     Classic Nelson dictionary index.
         /// </summary>
-        public string ClassicNelson { get; set; }
+        public string Classic_Nelson { get; set; }
 
         protected bool Equals(References other)
         {
-            return this.Grade == other.Grade && string.Equals(this.Kodansha, other.Kodansha) && string.Equals(this.ClassicNelson, other.ClassicNelson);
+            return this.Grade == other.Grade && string.Equals(this.Kodansha, other.Kodansha) && string.Equals(this.Classic_Nelson, other.Classic_Nelson);
         }
 
         public override bool Equals(object obj)
@@ -39,7 +39,7 @@
             {
                 int hashCode = this.Grade.GetHashCode();
                 hashCode = (hashCode*397) ^ (this.Kodansha != null ? this.Kodansha.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (this.ClassicNelson != null ? this.ClassicNelson.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (this.Classic_Nelson != null ? this.Classic_Nelson.GetHashCode() : 0);
                 return hashCode;
             }
         }
