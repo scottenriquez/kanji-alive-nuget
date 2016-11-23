@@ -12,7 +12,7 @@ namespace KanjiAlive.Exceptions
     public class ApiInternalServerErrorException : Exception
     {
         /// <summary>
-        /// Constructs an instance of ApiInternalServerException.
+        /// Constructor for ApiInternalServerException.
         /// </summary>
         public ApiInternalServerErrorException() : base("The API server returned an internal server error (500) response.")
         {

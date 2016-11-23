@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using KanjiAlive.Exceptions;
 
 namespace KanjiAlive.Helpers
 {
     /// <summary>
-    /// A cleaner way to enforce assertions.
+    /// A clean way to enforce assertions.
     /// </summary>
     public static class Ensure
     {
@@ -27,6 +23,12 @@ namespace KanjiAlive.Helpers
             }
         }
 
+        /// <summary>
+        /// Ensure that the API key is validated by Mashape.
+        /// </summary>
+        /// <param name="HttpStatusCode">
+        /// API response status code.
+        /// </param>
         public static void ApiKeyIsValid(HttpStatusCode HttpStatusCode)
         {
             if (HttpStatusCode == HttpStatusCode.Forbidden)
@@ -35,6 +37,12 @@ namespace KanjiAlive.Helpers
             }
         }
 
+        /// <summary>
+        /// Ensure that an internal error did not occur on the API server.
+        /// </summary>
+        /// <param name="HttpStatusCode">
+        /// API response status code.
+        /// </param>
         public static void ResponseIsNotInternalServerError(HttpStatusCode HttpStatusCode)
         {
             if (HttpStatusCode == HttpStatusCode.InternalServerError)

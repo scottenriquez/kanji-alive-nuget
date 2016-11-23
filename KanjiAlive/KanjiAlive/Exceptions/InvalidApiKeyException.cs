@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KanjiAlive.Exceptions
 {
@@ -12,7 +8,7 @@ namespace KanjiAlive.Exceptions
     public class InvalidApiKeyException : Exception
     {
         /// <summary>
-        /// Constructs an instance of InvalidApiKeyException.
+        /// Constructor for InvalidApiKeyException.
         /// </summary>
         public InvalidApiKeyException() : base("The API key provided is invalid.")
         {

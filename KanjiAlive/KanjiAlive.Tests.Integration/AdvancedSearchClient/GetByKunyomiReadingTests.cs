@@ -15,7 +15,7 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
         public async Task ShouldGetByKunyomiReading()
         {
             KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
-            IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.AdvancedSearchClient.GetByKunyomiReading("oya");
+            IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.AdvancedSearchClient.SearchByKunyomiReading("oya");
             Assert.That(ApiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }

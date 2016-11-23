@@ -15,7 +15,7 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
         public async Task ShouldGetByKanjiEnglishMeaning()
         {
             KanjiAliveClient Client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
-            IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.AdvancedSearchClient.GetByKanjiEnglishMeaning("parent");
+            IApiResponse<List<KanjiSimpleResponse>> ApiResponse = await Client.AdvancedSearchClient.SearchByKanjiEnglishMeaning("parent");
             Assert.That(ApiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }

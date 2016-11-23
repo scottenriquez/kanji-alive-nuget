@@ -7,7 +7,23 @@ namespace KanjiAlive.Clients
 {
     public interface IKanjiDetailsClient
     {
-        Task<IApiResponse<KanjiDetailedResponse>> GetSingleKanjiDetails(string kanji);
+        /// <summary>
+        /// Search for a single kanji character.
+        /// </summary>
+        /// <param name="Kanji">
+        /// A single kanji character.
+        /// </param>
+        /// <returns>
+        /// The API response and detailed metadata about the kanji character(s) that match the search criteria.
+        /// </returns>
+        Task<IApiResponse<KanjiDetailedResponse>> GetSingleKanjiDetails(string Kanji);
+
+        /// <summary>
+        /// Fetch all kanji characters and their respective metadata.
+        /// </summary>
+        /// <returns>
+        /// The API response and detailed metadata about the kanji character(s) that match the search criteria.
+        /// </returns>
         Task<IApiResponse<List<KanjiDetailedResponse>>> GetAllKanjiDetails();
     }
 }
