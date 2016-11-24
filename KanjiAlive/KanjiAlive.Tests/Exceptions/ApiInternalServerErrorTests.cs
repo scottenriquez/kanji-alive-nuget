@@ -13,5 +13,11 @@ namespace KanjiAlive.Tests.Exceptions
         {
             Assert.Throws<ApiInternalServerErrorException>(() => { Ensure.ResponseIsNotInternalServerError(HttpStatusCode.InternalServerError); });
         }
+
+        [Test]
+        public void ShouldNotThrowApiInternalServerErrorException()
+        {
+            Assert.DoesNotThrow(() => { Ensure.ResponseIsNotInternalServerError(HttpStatusCode.OK); });
+        }
     }
 }

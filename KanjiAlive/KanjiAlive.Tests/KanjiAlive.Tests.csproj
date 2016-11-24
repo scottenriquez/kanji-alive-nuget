@@ -52,7 +52,10 @@
     <Compile Include="Deserialization\KanjiSimpleResponseDeserializationTests.cs" />
     <Compile Include="Exceptions\ApiInternalServerErrorTests.cs" />
     <Compile Include="Exceptions\EmptyApiKeyExceptionTests.cs" />
+    <Compile Include="Exceptions\InvalidApExamChapterExceptionTests.cs" />
     <Compile Include="Exceptions\InvalidApiKeyExceptionTests.cs" />
+    <Compile Include="Exceptions\InvalidKanjiGradeLevelExceptionTests.cs" />
+    <Compile Include="Exceptions\InvalidMacquarieChapterExceptionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

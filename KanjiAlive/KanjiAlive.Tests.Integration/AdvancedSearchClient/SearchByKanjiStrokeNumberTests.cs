@@ -12,11 +12,12 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
     public class SearchByKanjiStrokeNumberTests
     {
         [Test]
-        public async Task ShouldGetByKanjiStrokeNumber()
+        public async Task ShouldSearchByKanjiStrokeNumber()
         {
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByKanjiStrokeNumber(5);
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(apiResponse.Content.Count, Is.EqualTo(78));
         }
     }
 }

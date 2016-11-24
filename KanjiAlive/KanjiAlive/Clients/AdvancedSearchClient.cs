@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using KanjiAlive.Helpers;
 using KanjiAlive.Http;
 using KanjiAlive.Models.Response;
 
@@ -134,6 +135,7 @@ namespace KanjiAlive.Clients
         /// </returns>
         public async Task<IApiResponse<List<KanjiSimpleResponse>>> SearchByKanjiGradeLevel(int grade)
         {
+            Ensure.KanjiGradeLevelIsValid(grade);
             return await this.Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, GRADE_URL_PARAMETER + grade));
         }
 
@@ -246,6 +248,7 @@ namespace KanjiAlive.Clients
         /// </returns>
         public async Task<IApiResponse<List<KanjiSimpleResponse>>> SearchByApExamChapter(int chapter)
         {
+            Ensure.ApExamChapterIsValid(chapter);
             return await this.Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, AP_EXAM_URL_PARAMETER + chapter));
         }
 
@@ -258,6 +261,7 @@ namespace KanjiAlive.Clients
         /// </returns>
         public async Task<IApiResponse<List<KanjiSimpleResponse>>> SearchByMacquarieChapter(int chapter)
         {
+            Ensure.MacquarieChapterIsValid(chapter);
             return await this.Connection.Get<List<KanjiSimpleResponse>>(new Uri(BaseUri, MACQUARIE_URL_PARAMETER + chapter));
         }
     }

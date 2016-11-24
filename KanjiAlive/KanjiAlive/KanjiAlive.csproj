@@ -53,7 +53,10 @@
     <Compile Include="Clients\KanjiDetailsClient.cs" />
     <Compile Include="Exceptions\ApiInternalServerErrorException.cs" />
     <Compile Include="Exceptions\EmptyApiKeyException.cs" />
+    <Compile Include="Exceptions\InvalidApExamChapterException.cs" />
     <Compile Include="Exceptions\InvalidApiKeyException.cs" />
+    <Compile Include="Exceptions\InvalidKanjiGradeLevelException.cs" />
+    <Compile Include="Exceptions\InvalidMacquarieChapterException.cs" />
     <Compile Include="Helpers\Ensure.cs" />
     <Compile Include="Http\ApiResponse.cs" />
     <Compile Include="Http\Connection.cs" />

@@ -1,4 +1,5 @@
-﻿using KanjiAlive.Exceptions;
+﻿using System;
+using KanjiAlive.Exceptions;
 using NUnit.Framework;
 
 namespace KanjiAlive.Tests.Exceptions
@@ -16,6 +17,12 @@ namespace KanjiAlive.Tests.Exceptions
         public void ShouldThrowEmptyApiExceptionForNull()
         {
             Assert.Throws<EmptyApiKeyException>(() => new KanjiAliveClient(null));
+        }
+
+        [Test]
+        public void ShouldNotThrowEmptyApiException()
+        {
+            Assert.DoesNotThrow(() => new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY")));
         }
     }
 }

@@ -50,5 +50,47 @@ namespace KanjiAlive.Helpers
                 throw new ApiInternalServerErrorException();
             }
         }
+
+        /// <summary>
+        ///     Ensure that a kanji grade level is between 1 and 6.
+        /// </summary>
+        /// <param name="kanjiGradeLevel">
+        ///     The grade level at which a kanji is learned.
+        /// </param>
+        public static void KanjiGradeLevelIsValid(int kanjiGradeLevel)
+        {
+            if (kanjiGradeLevel < 1 || kanjiGradeLevel > 6)
+            {
+                throw new InvalidKanjiGradeLevelException();
+            }
+        }
+
+        /// <summary>
+        ///     Ensure that an AP Exam chapter is between 1 and 20.
+        /// </summary>
+        /// <param name="apExamChapter">
+        ///     The AP exam chapter when a kanji is learned.
+        /// </param>
+        public static void ApExamChapterIsValid(int apExamChapter)
+        {
+            if (apExamChapter < 1 || apExamChapter > 20)
+            {
+                throw new InvalidApExamChapterException();
+            }
+        }
+
+        /// <summary>
+        ///     Ensure that a Macquarie chapter is between 12 and 22.
+        /// </summary>
+        /// <param name="macquarieChapter">
+        ///     The Macquarie chapter when a kanji is learned.
+        /// </param>
+        public static void MacquarieChapterIsValid(int macquarieChapter)
+        {
+            if (macquarieChapter < 12 || macquarieChapter > 22)
+            {
+                throw new InvalidMacquarieChapterException();
+            }
+        }
     }
 }

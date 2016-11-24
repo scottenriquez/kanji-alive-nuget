@@ -12,11 +12,12 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
     public class SearchByKanjiEnglishMeaningTests
     {
         [Test]
-        public async Task ShouldGetByKanjiEnglishMeaning()
+        public async Task ShouldSearchByKanjiEnglishMeaning()
         {
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByKanjiEnglishMeaning("parent");
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(apiResponse.Content[0].Kanji.Character, Is.EqualTo("親"));
         }
     }
 }

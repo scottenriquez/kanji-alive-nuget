@@ -17,6 +17,7 @@ namespace KanjiAlive.Tests.Integration.BasicSearchClient
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.BasicSearchClient.Search("rain");
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(apiResponse.Content[0].Kanji.Character, Is.EqualTo("雨"));
         }
     }
 }

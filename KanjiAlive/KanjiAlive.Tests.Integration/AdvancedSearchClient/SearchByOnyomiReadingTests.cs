@@ -12,11 +12,12 @@ namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
     public class SearchByOnyomiReadingTests
     {
         [Test]
-        public async Task ShouldGetByOnyomiReading()
+        public async Task ShouldSearchByOnyomiReading()
         {
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByOnyomiReading("シン");
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(apiResponse.Content.Count, Is.EqualTo(17));
         }
     }
 }

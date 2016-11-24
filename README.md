@@ -2,7 +2,7 @@
 This NuGet package provides a C# interface to easily query and fetch kanji data from the [Kanji Alive](https://kanjialive.com/) public API. This package is designed to simplify development of Japanese learning desktop and web applications on the C#/.NET platform.
 
 # Usage
-All of the API endpoints are accessible using the <code>KanjiAliveClient</code>. To use the client, simply instantiate while passing your Mashape API key as the sole constructor parameter.
+All of the API endpoints are accessible using the <code>KanjiAliveClient</code>. To use the client, simply instantiate while passing your Mashape API key as the sole constructor parameter. You can obtain an API key [here](https://market.mashape.com/kanjialive/learn-to-read-and-write-japanese-kanji).
 
 <code>KanjiAliveClient client = new KanjiAliveClient("MY_API_KEY");</code>
 

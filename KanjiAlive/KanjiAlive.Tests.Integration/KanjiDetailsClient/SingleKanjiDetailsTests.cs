@@ -16,6 +16,7 @@ namespace KanjiAlive.Tests.Integration.KanjiDetailsClient
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
             IApiResponse<KanjiDetailedResponse> apiResponse = await client.KanjiDetailsClient.GetSingleKanjiDetails("訪");
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(apiResponse.Content.Kanji.Character, Is.EqualTo("訪"));
         }
     }
 }
