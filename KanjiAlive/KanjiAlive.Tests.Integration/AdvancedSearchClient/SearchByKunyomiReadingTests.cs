@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
 {
     [TestFixture]
-    public class GetByKunyomiReadingTests
+    public class SearchByKunyomiReadingTests
     {
         [Test]
         public async Task ShouldGetByKunyomiReading()

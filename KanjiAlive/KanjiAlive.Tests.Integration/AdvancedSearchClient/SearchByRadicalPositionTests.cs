@@ -9,13 +9,13 @@ using NUnit.Framework;
 namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
 {
     [TestFixture]
-    public class GetByKanjiEnglishMeaningTests
+    public class SearchByRadicalPositionTests
     {
         [Test]
-        public async Task ShouldGetByKanjiEnglishMeaning()
+        public async Task ShouldGetByRadicalPosition()
         {
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
-            IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByKanjiEnglishMeaning("parent");
+            IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByRadicalPosition("hen");
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }

@@ -48,10 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedSearchClient\GetByKanjiCharacterTests.cs" />
-    <Compile Include="AdvancedSearchClient\GetByKanjiEnglishMeaningTests.cs" />
-    <Compile Include="AdvancedSearchClient\GetByKanjiGradeLevelTests.cs" />
-    <Compile Include="AdvancedSearchClient\GetByKunyomiReadingTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByApExamChapterTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByKanjiCharacterTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByKanjiEnglishMeaningTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByKanjiGradeLevelTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByKanjiStrokeNumberTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByKunyomiReadingTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByMacquarieChapterTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByOnyomiReadingTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByRadicalEnglishMeaningTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByRadicalJapaneseNameTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByRadicalPositionTests.cs" />
+    <Compile Include="AdvancedSearchClient\SearchByRadicalStrokeNumberTests.cs" />
     <Compile Include="BasicSearchClient\BasicSearchClientTests.cs" />
     <Compile Include="KanjiDetailsClient\AllKanjiDetailsTests.cs" />
     <Compile Include="KanjiDetailsClient\SingleKanjiDetailsTests.cs" />

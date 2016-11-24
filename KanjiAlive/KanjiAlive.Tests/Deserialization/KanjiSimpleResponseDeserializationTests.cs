@@ -32,7 +32,6 @@ namespace KanjiAlive.Tests.Deserialization
             string json = "{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}";
             Connection connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
             KanjiSimpleResponse deserializedKanjiSimpleResponse = connection.DeserializeJson<KanjiSimpleResponse>(json);
-            //assert
             Assert.That(controlKanjiSimpleResponse, Is.EqualTo(deserializedKanjiSimpleResponse));
         }
 
@@ -59,7 +58,6 @@ namespace KanjiAlive.Tests.Deserialization
             string json = "[{\"kanji\":{\"character\":\"雨\",\"stroke\":8},\"radical\":{\"character\":\"雨\",\"stroke\":8,\"order\":210}}]";
             Connection connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
             List<KanjiSimpleResponse> deserializedKanjiSimpleResponses = connection.DeserializeJson<List<KanjiSimpleResponse>>(json);
-            //assert
             Assert.That(controlKanjiSimpleResponses, Is.EqualTo(deserializedKanjiSimpleResponses));
         }
     }

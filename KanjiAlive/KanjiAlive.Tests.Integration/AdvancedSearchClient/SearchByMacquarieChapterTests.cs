@@ -9,13 +9,13 @@ using NUnit.Framework;
 namespace KanjiAlive.Tests.Integration.AdvancedSearchClient
 {
     [TestFixture]
-    public class GetByKanjiGradeLevelTests
+    public class SearchByMacquarieChapterTests
     {
         [Test]
-        public async Task ShouldGetByKanjiGradeLevel()
+        public async Task ShouldGetByMacquarieChapterTests()
         {
             KanjiAliveClient client = new KanjiAliveClient(Environment.GetEnvironmentVariable("MASHAPE_API_KEY"));
-            IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByKanjiGradeLevel(2);
+            IApiResponse<List<KanjiSimpleResponse>> apiResponse = await client.AdvancedSearchClient.SearchByMacquarieChapter(1);
             Assert.That(apiResponse.HttpResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         }
     }
