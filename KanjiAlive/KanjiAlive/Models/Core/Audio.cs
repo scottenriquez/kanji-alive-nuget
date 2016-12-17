@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Hyperlinks to audio files in various formats.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     Hyperlink to audio file in Opus format.
         /// </summary>
+        [JsonProperty(PropertyName = "Opus")]
         public string Opus { get; set; }
 
         /// <summary>
