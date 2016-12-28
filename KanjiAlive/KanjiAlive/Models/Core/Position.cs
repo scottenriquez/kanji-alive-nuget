@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Position of a radical in a kanji character.
@@ -8,16 +10,19 @@
         /// <summary>
         ///     Hiragana text for a position.
         /// </summary>
+        [JsonProperty(PropertyName = "Hiragana")]
         public string Hiragana { get; set; }
 
         /// <summary>
         ///     Romaji text for a position.
         /// </summary>
+        [JsonProperty(PropertyName = "Romaji")]
         public string Romaji { get; set; }
 
         /// <summary>
         ///     Hyperlink to an image file for the icon for a position.
         /// </summary>
+        [JsonProperty(PropertyName = "Icon")]
         public string Icon { get; set; }
 
         protected bool Equals(Position other)

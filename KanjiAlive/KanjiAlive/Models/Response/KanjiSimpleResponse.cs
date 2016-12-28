@@ -1,4 +1,5 @@
 ﻿using KanjiAlive.Models.Core;
+using Newtonsoft.Json;
 
 namespace KanjiAlive.Models.Response
 {
@@ -10,11 +11,13 @@ namespace KanjiAlive.Models.Response
         /// <summary>
         ///     Simple metadata for a kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Kanji")]
         public KanjiSimple Kanji { get; set; }
 
         /// <summary>
         ///     Simple metadata for a radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Radical")]
         public RadicalSimple Radical { get; set; }
 
         protected bool Equals(KanjiSimpleResponse other)

@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     The name for a character.
@@ -8,11 +10,13 @@
         /// <summary>
         ///     Hiragana text for a character's name.
         /// </summary>
+        [JsonProperty(PropertyName = "Hiragana")]
         public string Hiragana { get; set; }
 
         /// <summary>
         ///     Romaji text for a character's name.
         /// </summary>
+        [JsonProperty(PropertyName = "Romaji")]
         public string Romaji { get; set; }
 
         protected bool Equals(Name other)

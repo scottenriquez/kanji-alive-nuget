@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Japanese reading for a kanji character.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     The hiragana text for the Japanese reading of a kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Hiragana")]
         public string Hiragana { get; set; }
 
         protected bool Equals(Kunyomi other)

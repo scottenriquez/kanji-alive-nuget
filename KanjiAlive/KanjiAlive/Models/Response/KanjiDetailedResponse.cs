@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using KanjiAlive.Models.Core;
+using Newtonsoft.Json;
 
 namespace KanjiAlive.Models.Response
 {
@@ -12,21 +13,25 @@ namespace KanjiAlive.Models.Response
         /// <summary>
         ///     Detailed metadata for a kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Kanji")]
         public KanjiDetailed Kanji { get; set; }
 
         /// <summary>
         ///     Detailed metadata for a radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Radical")]
         public RadicalDetailed Radical { get; set; }
 
         /// <summary>
         ///     Index information for a kanji character in common references.
         /// </summary>
+        [JsonProperty(PropertyName = "References")]
         public References References { get; set; }
 
         /// <summary>
         ///     Example uses of a kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Examples")]
         public List<Example> Examples { get; set; }
 
         protected bool Equals(KanjiDetailedResponse other)

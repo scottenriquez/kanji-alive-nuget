@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Simple metadata for a radical.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     The order of the radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Order")]
         public int Order { get; set; }
 
         protected bool Equals(RadicalSimple other)

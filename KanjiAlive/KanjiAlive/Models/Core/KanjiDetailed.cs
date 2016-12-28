@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Detailed metadata for a kanji character.
@@ -8,31 +10,37 @@
         /// <summary>
         ///     The kanji character itself.
         /// </summary>
+        [JsonProperty(PropertyName = "Character")]
         public string Character { get; set; }
 
         /// <summary>
         ///     The English meaning for the kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Meaning")]
         public Meaning Meaning { get; set; }
 
         /// <summary>
         ///     How to draw the kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Strokes")]
         public Strokes Strokes { get; set; }
 
         /// <summary>
         ///     The Chinese reading for the kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Onyomi")]
         public Onyomi Onyomi { get; set; }
 
         /// <summary>
         ///     The Japanese reading for the kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Kunyomi")]
         public Kunyomi Kunyomi { get; set; }
 
         /// <summary>
         ///     Hyperlinks to videos for the kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Video")]
         public Video Video { get; set; }
 
         protected bool Equals(KanjiDetailed other)

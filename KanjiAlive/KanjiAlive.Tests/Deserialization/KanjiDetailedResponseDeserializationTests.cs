@@ -162,7 +162,7 @@ namespace KanjiAlive.Tests.Deserialization
                 {
                     Grade = 6,
                     Kodansha = "985",
-                    Classic_Nelson = "4326"
+                    ClassicNelson = "4326"
                 },
                 Examples = examples
             };
@@ -171,6 +171,7 @@ namespace KanjiAlive.Tests.Deserialization
             Connection connection = new Connection(Environment.GetEnvironmentVariable("MASHAPE_API_KEY", EnvironmentVariableTarget.Machine));
             KanjiDetailedResponse deserializedKanjiDetailedResponse = connection.DeserializeJson<KanjiDetailedResponse>(json);
             Assert.That(controlKanjiDetailedResponse, Is.EqualTo(deserializedKanjiDetailedResponse));
+            ;
         }
     }
 }

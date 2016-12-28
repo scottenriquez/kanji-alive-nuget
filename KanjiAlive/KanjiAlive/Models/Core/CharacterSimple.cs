@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Basic metadata for a character.
@@ -8,11 +10,13 @@
         /// <summary>
         ///     The character itself.
         /// </summary>
+        [JsonProperty(PropertyName = "Character")]
         public string Character { get; set; }
 
         /// <summary>
         ///     The number of strokes for the character.
         /// </summary>
+        [JsonProperty(PropertyName = "Stroke")]
         public int Stroke { get; set; }
 
         protected bool Equals(CharacterSimple other)

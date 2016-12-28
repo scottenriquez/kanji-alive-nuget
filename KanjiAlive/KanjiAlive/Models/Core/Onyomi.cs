@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Chinese reading for a character.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     The katakana text for the Chinese reading of a character.
         /// </summary>
+        [JsonProperty(PropertyName = "Katakana")]
         public string Katakana { get; set; }
 
         protected bool Equals(Onyomi other)
