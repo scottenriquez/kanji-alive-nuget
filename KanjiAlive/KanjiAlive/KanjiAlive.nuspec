@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>KanjiAlive.Client</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Scottie Enriquez</authors>
     <owners>Scottie Enriquez</owners>
     <projectUrl>https://github.com/scottenriquez/kanji-alive-nuget</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This NuGet package provides a C# interface to easily query and fetch kanji data from the Kanji Alive public API. This package is designed to simplify development of Japanese learning desktop and web applications on the C#/.NET platform.</description>
     <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2017</copyright>
     <tags>KanjiAlive kanji Japanese</tags>
     <dependencies>
       <group>
