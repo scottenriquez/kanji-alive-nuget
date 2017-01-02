@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     An example use of a kanji character.
@@ -8,16 +10,19 @@
         /// <summary>
         ///     The example text in Japanese.
         /// </summary>
+        [JsonProperty(PropertyName = "Japanese")]
         public string Japanese { get; set; }
 
         /// <summary>
         ///     The English translation for the example use.
         /// </summary>
+        [JsonProperty(PropertyName = "Meaning")]
         public Meaning Meaning { get; set; }
 
         /// <summary>
         ///     Hyperlinks to the audio for the example.
         /// </summary>
+        [JsonProperty(PropertyName = "Audio")]
         public Audio Audio { get; set; }
 
         protected bool Equals(Example other)

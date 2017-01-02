@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace KanjiAlive.Models.Core
 {
@@ -11,16 +12,19 @@ namespace KanjiAlive.Models.Core
         /// <summary>
         ///     Number of strokes in a character.
         /// </summary>
+        [JsonProperty(PropertyName = "Count")]
         public int Count { get; set; }
 
         /// <summary>
         ///     List of timings for drawing a character.
         /// </summary>
+        [JsonProperty(PropertyName = "Timings")]
         public List<double> Timings { get; set; }
 
         /// <summary>
         ///     List of images that show how to draw the character.
         /// </summary>
+        [JsonProperty(PropertyName = "Images")]
         public List<string> Images { get; set; }
 
         protected bool Equals(Strokes other)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace KanjiAlive.Models.Core
 {
@@ -11,36 +12,43 @@ namespace KanjiAlive.Models.Core
         /// <summary>
         ///     The radical itself.
         /// </summary>
+        [JsonProperty(PropertyName = "Character")]
         public string Character { get; set; }
 
         /// <summary>
         ///     The number of strokes in a radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Strokes")]
         public int? Strokes { get; set; }
 
         /// <summary>
         ///     A hyperlink to an image of the radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Image")]
         public string Image { get; set; }
 
         /// <summary>
         ///     Position of a radical in a kanji character.
         /// </summary>
+        [JsonProperty(PropertyName = "Position")]
         public Position Position { get; set; }
 
         /// <summary>
         ///     The name of the radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Name")]
         public Name Name { get; set; }
 
         /// <summary>
         ///     The English meaning of the radical.
         /// </summary>
+        [JsonProperty(PropertyName = "Meaning")]
         public Meaning Meaning { get; set; }
 
         /// <summary>
         ///     A list of hyperlinks to animation images.
         /// </summary>
+        [JsonProperty(PropertyName = "Animation")]
         public List<string> Animation { get; set; }
 
         protected bool Equals(RadicalDetailed other)

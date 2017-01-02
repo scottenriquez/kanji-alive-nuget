@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     An English translation.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     The English translation text.
         /// </summary>
+        [JsonProperty(PropertyName = "English")]
         public string English { get; set; }
 
         protected bool Equals(Meaning other)

@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Index information for a kanji character in common references.
@@ -8,21 +10,24 @@
         /// <summary>
         ///     Grade level.
         /// </summary>
+        [JsonProperty(PropertyName = "Grade")]
         public int? Grade { get; set; }
 
         /// <summary>
         ///     Kodansha index.
         /// </summary>
+        [JsonProperty(PropertyName = "Kodansha")]
         public string Kodansha { get; set; }
 
         /// <summary>
         ///     Classic Nelson dictionary index.
         /// </summary>
-        public string Classic_Nelson { get; set; }
+        [JsonProperty(PropertyName = "Classic_Nelson")]
+        public string ClassicNelson { get; set; }
 
         protected bool Equals(References other)
         {
-            return this.Grade == other.Grade && string.Equals(this.Kodansha, other.Kodansha) && string.Equals(this.Classic_Nelson, other.Classic_Nelson);
+            return this.Grade == other.Grade && string.Equals(this.Kodansha, other.Kodansha) && string.Equals(this.ClassicNelson, other.ClassicNelson);
         }
 
         public override bool Equals(object obj)
@@ -39,7 +44,7 @@
             {
                 int hashCode = this.Grade.GetHashCode();
                 hashCode = (hashCode*397) ^ (this.Kodansha != null ? this.Kodansha.GetHashCode() : 0);
-                hashCode = (hashCode*397) ^ (this.Classic_Nelson != null ? this.Classic_Nelson.GetHashCode() : 0);
+                hashCode = (hashCode*397) ^ (this.ClassicNelson != null ? this.ClassicNelson.GetHashCode() : 0);
                 return hashCode;
             }
         }

@@ -162,7 +162,7 @@ namespace KanjiAlive.Tests.Deserialization
                 {
                     Grade = 6,
                     Kodansha = "985",
-                    Classic_Nelson = "4326"
+                    ClassicNelson = "4326"
                 },
                 Examples = examples
             };

@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Reading for a character.
@@ -8,6 +10,7 @@
         /// <summary>
         ///     The romaji reading for a character.
         /// </summary>
+        [JsonProperty(PropertyName = "Romaji")]
         public string Romaji { get; set; }
 
         protected bool Equals(Yomi other)

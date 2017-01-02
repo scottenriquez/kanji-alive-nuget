@@ -1,4 +1,6 @@
-﻿namespace KanjiAlive.Models.Core
+﻿using Newtonsoft.Json;
+
+namespace KanjiAlive.Models.Core
 {
     /// <summary>
     ///     Video hyperlinks.
@@ -8,16 +10,19 @@
         /// <summary>
         ///     Hyperlink to the poster image.
         /// </summary>
+        [JsonProperty(PropertyName = "Poster")]
         public string Poster { get; set; }
 
         /// <summary>
         ///     Hyperlink to the video in MP4 format.
         /// </summary>
+        [JsonProperty(PropertyName = "Mp4")]
         public string Mp4 { get; set; }
 
         /// <summary>
         ///     Hyperlink to the video in WebM format.
         /// </summary>
+        [JsonProperty(PropertyName = "Webm")]
         public string Webm { get; set; }
 
         protected bool Equals(Video other)
