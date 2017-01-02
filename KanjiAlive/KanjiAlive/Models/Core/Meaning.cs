@@ -10,7 +10,7 @@ namespace KanjiAlive.Models.Core
         /// <summary>
         ///     The English translation text.
         /// </summary>
-        [JsonProperty(PropertyName = "Meaning")]
+        [JsonProperty(PropertyName = "English")]
         public string English { get; set; }
 
         protected bool Equals(Meaning other)
